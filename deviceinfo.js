@@ -10,6 +10,9 @@ if (!RNDeviceInfo && Platform.OS === 'web') {
 }
 
 module.exports = {
+  getImei: function() {
+    return RNDeviceInfo.imei;
+  },
   getUniqueID: function() {
     return RNDeviceInfo.uniqueId;
   },

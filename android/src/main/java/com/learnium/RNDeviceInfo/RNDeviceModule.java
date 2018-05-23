@@ -168,7 +168,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
       }
     }
 
-    p.resolve(macAddress);    
+    p.resolve(macAddress);
   }
 
   @ReactMethod
@@ -293,6 +293,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
             getCurrentActivity().checkCallingOrSelfPermission("android.permission.READ_PHONE_NUMBERS") == PackageManager.PERMISSION_GRANTED)) {
       TelephonyManager telMgr = (TelephonyManager) this.reactContext.getApplicationContext().getSystemService(Context.TELEPHONY_SERVICE);
       constants.put("phoneNumber", telMgr.getLine1Number());
+      constants.put("imei", telMgr.getDeviceId());
     }
     constants.put("carrier", this.getCarrier());
     constants.put("totalDiskCapacity", this.getTotalDiskCapacity());
